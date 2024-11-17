@@ -1,0 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#app{
+    height: 100%;
+    transition: 1s all ease-in-out;
+}
+
+/* Calendar Menu */
+  .gear.open{
+    animation: gearOpen 1s ease-in-out forwards;
+  }
+  .gear.close{
+    animation: gearClose 1s ease-in-out forwards;
+  }
+  .menu-list.open{
+    animation: menuOpen 1s ease-in-out forwards;
+  }
+  .menu-list.close{
+    animation: menuClose 1s ease-in-out forwards;
+  }
+
+  /* Schedule List */
+  .schedule-content{
+    grid-row: 2/11;
+  }
+  .schedule-list{
+    grid-column: 1/5;
+  }
+  .schedule-items{
+    transition: 0.5s;
+    transform: translateY(0px);
+    border: 1px solid;
+    box-shadow: 0px 0px 1px 0px;
+    transform: translateX(150%)
+  }
+  .schedule-items:hover{
+    transform: translateY(-3px);
+    box-shadow: 0px 1px 1px 1px;
+  }
+  .schedule-items > .schedule-title{
+    z-index: 2;
+    pointer-events: none;
+  }
+  .selected::before{
+    content: '';
+    position: absolute;
+    top: 25%;
+    width: 110%;
+    height: 50%;
+    background-color: #929AAB;
+    animation: rotate 9s ease-in-out infinite forwards;
+  }
+  .selected::after{
+    content: '';
+    position: absolute;
+    background-color: inherit;
+    inset: 3px;
+    border-radius: 5px;
+  }
+  .schedule-list-header{
+    grid-column: 1/5;
+  }
+  .schedule-info{
+    grid-column: 5/11;
+  }
+  .schedule-info-header{
+    grid-column: 5/11;
+  }
+  .schedule-title{
+    text-wrap: nowrap;
+  }
+  /* Other Styles */
+  .show{
+    animation: slideToLeft 1.5s ease-in-out forwards;
+  }
+  .marquee{
+    text-wrap: nowrap;
+    animation: marquee 10s 0.5s linear forwards infinite
+  }
+  .add_schedule.dark .add-selected{
+    background-color: rgb(244, 218, 21) !important;
+    color: black !important;
+  }
+  .add-selected{
+    background-color: rgb(42, 240, 233) !important;
+  }
+  .no-scrollbar::-webkit-scrollbar{
+    display: none;
+    cursor: pointer;
+  }
+  .no-scrollbar{
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    cursor: pointer;
+  }
+  .custom-number-input{
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+  .custom-number-input::-webkit-inner-spin-button,
+  .custom-number-input::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+  }
+/* Key Frames */
+  @keyframes gearOpen {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+  }
+  @keyframes gearClose {
+    from {transform: rotate(360deg);}
+    to {transform: rotate(0deg);}
+  }
+  @keyframes menuOpen {
+    from {transform: translate(100%);}
+    to {transform: translate(0%);}
+  }
+  @keyframes menuClose {
+    from {transform: translate(0%);}
+    to {transform: translate(100%);}
+  }
+  @keyframes rotate {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg)}
+  }
+  @keyframes marquee{
+    from {transform: translateX(calc(50% + 19vw))}
+    to {transform: translateX(calc(-50% + -19vw))}
+  }
+  @keyframes slideToLeft{
+    from {transform: translateX(150%)}
+    to {transform: translateX(0%)}
+  }
+  @keyframes slideToRight{
+    from {transform: translateX(-150%)}
+    to {transform: translateX(0%)}
+  }
