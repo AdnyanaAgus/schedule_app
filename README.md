@@ -1,4 +1,4 @@
-<h1 align="center">Calendar Component for react Schedule App</h1>
+<h1 align="center">Schedule App made with Laravel and React JS</h1>
 
 <p>Framework</p>
 <ol>
